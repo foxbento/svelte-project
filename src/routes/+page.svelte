@@ -35,16 +35,18 @@
     }
 </script>
 
-<div class="grid grid-rows-6 grid-cols-3 gap-4 bg-cover bg-[url('/jackson-hendry-eodA_8CTOFo-unsplash.jpg')]">
+<div class="grid grid-rows-[auto_1fr] grid-cols-3 gap-4 min-h-screen bg-cover bg-[url('/jackson-hendry-eodA_8CTOFo-unsplash.jpg')]">
     <div class="mt-4 row-start-1 col-span-3 md:col-start-2 md:col-span-1 flex flex-col items-center justify-start w-full p-4 bg-white/90 backdrop-blur-lg rounded-lg border border-purple-200/50 shadow-lg">
         <h2 class="font-mono scroll-m-20 text-2xl tracking-tight text-lg text-black text-center">Surprise me!</h2>
         <p class="text-sm text-center text-black font-mono">Picks a random artist from our database for you.</p>
         <Button class="shadcn-button mt-4 font-mono" on:click={handleGenerateClick}>Generate</Button>
     </div>
     
-    <div class="p-1 row-start-2 row-span-5 col-span-3 md:col-start-2 md:col-span-1 flex flex-col overflow-y-auto">
-        {#each artistCards as card}
-            <ArtistCard artistDetails={card}/>
-        {/each}
+    <div class="row-start-2 col-span-3 md:col-start-2 md:col-span-1 flex flex-col">
+        <div class="overflow-y-auto p-1">
+            {#each artistCards as card, index (card)}
+                <ArtistCard artistDetails={card} />
+            {/each}
+        </div>
     </div>
 </div>

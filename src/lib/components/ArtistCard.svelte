@@ -10,12 +10,13 @@
     description: '',
     popular_images: [],
   };
+    import { fly , slide } from 'svelte/transition';
     import { Button } from "$lib/components/ui/button";
     import * as Avatar from "$lib/components/ui/avatar";
     import Carousel from "$lib/components/ui/Carousel.svelte";
     let showImages = false;
 </script>
-<div class="ring-purple-200/50 ring-offset-slate-500 ring-offset-1 hover:ring-1 w-full sm:w-96 md:w-auto px-4 py-6 bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg mb-1">
+<div class="ring-purple-200/50 ring-offset-slate-500 ring-offset-1 hover:ring-1 w-full sm:w-96 md:w-auto px-4 py-6 bg-white bg-opacity-20 backdrop-blur-md shadow-lg rounded-lg mb-1" in:fly={{ y: -50, duration: 500 }} out:slide={{ duration: 500 }}>
     <div class="flex mb-4">
         <Avatar.Root class="w-16 h-16 sm:w-24 sm:h-24">
             <Avatar.Image src="{artistDetails.profile_image}" alt="@shadcn" />
